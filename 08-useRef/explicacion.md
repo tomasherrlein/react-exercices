@@ -185,6 +185,44 @@ function MedirCaja() {
 
 ---
 
+## forwardRef — Pasar una ref al hijo
+
+Normalmente, `ref` no se puede pasar como prop a un componente funcional. Si necesitás que un padre acceda al DOM de un hijo, usás `forwardRef`:
+
+```jsx
+import { forwardRef, useRef } from "react";
+
+// El hijo "reenvía" la ref al input interno
+const FancyInput = forwardRef(function FancyInput(props, ref) {
+  return <input ref={ref} className="fancy" {...props} />;
+});
+
+// El padre puede hacer focus en el input del hijo
+function Form() {
+  const inputRef = useRef(null);
+
+  return (
+    <div>
+      <FancyInput ref={inputRef} placeholder="Nombre" />
+      <button onClick={() => inputRef.current.focus()}>
+        Focus
+      </button>
+    </div>
+  );
+}
+```
+
+### ¿Cuándo usarlo?
+
+- Componentes reutilizables de UI (inputs, botones) que necesitan exponer su DOM
+- Librerías de componentes donde el consumidor necesita acceso al nodo
+
+### Nota React 19
+
+En React 19, `ref` se puede pasar como prop normal (sin `forwardRef`). Pero hasta que React 19 sea estándar, `forwardRef` es la forma correcta.
+
+---
+
 ## Resumen
 
 | Pregunta | Respuesta |
@@ -193,3 +231,4 @@ function MedirCaja() {
 | ¿Cuándo usarlo para DOM? | Focus, scroll, medir, integrar librerías externas |
 | ¿Cuándo usarlo para valores? | Timer IDs, valores previos, contadores internos, cualquier cosa que no deba re-renderizar |
 | ¿Qué NO hacer? | No uses `.current` para mostrar datos en la UI — usa `useState` |
+| ¿Qué es forwardRef? | Permite que un padre acceda al DOM de un componente hijo |

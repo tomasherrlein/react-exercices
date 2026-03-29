@@ -50,7 +50,17 @@ function Perfil() {
  */
 
 export function TarjetaProducto({ nombre, precio, stock, descripcion }) {
-  // Tu código aquí
+  return (
+      <div>
+       <h2>{nombre}</h2>
+        <p>${precio.toFixed(2)}</p>
+        <p style={{ color: stock > 0 ? "green" : "red" }}>
+          {stock > 0 ? "Disponible" : "Sin stock"}
+        </p>
+        {descripcion && <p>{descripcion}</p>}
+        <button disabled={stock === 0}>Comprar</button>
+      </div>
+  );
 }
 
 // Prueba con:
@@ -79,7 +89,23 @@ export function TarjetaProducto({ nombre, precio, stock, descripcion }) {
  * Pista 2: style={{ ...estilos }} en JSX.
  */
 export function AlertBox({ type, message }) {
-  // Tu código aquí
+  const estilos = {
+    success: { background: "#d4edda", borderColor: " #c3e6cb", icon:"✅"},
+    warning: { background: "#fff3cd", borderColor: " #ffc107", icon:"⚠️"},
+    error: { background: "#f8d7da", borderColor: " #f5c6cb", icon:"❌"}
+  };
+
+  const estiloSeleccionado = estilos[type];
+  
+  return(
+    <div style={{
+      backgroundColor: estiloSeleccionado.background,
+      border: `1px, solid, ${estiloSeleccionado.borderColor}`,
+      padding: "12px"  
+    }}>
+      {estiloSeleccionado.icon}{message}
+    </div>
+  )
 }
 
 // Prueba con:
@@ -111,7 +137,13 @@ const linksDemo = [
 ];
 
 export function NavBar({ links }) {
-  // Tu código aquí
+  return (
+    <nav>
+      <ul>
+        {links.map(link => <li key={link.href}> <a style={{fontWeight: link.active && "bold"}} href={link.href}> {link.label} </a> </li>)}
+      </ul>
+    </nav>
+  )
 }
 
 // Prueba con: <NavBar links={linksDemo} />
@@ -140,7 +172,20 @@ export function NavBar({ links }) {
  * Este ejercicio combina: ternarios, &&, early return, Fragment.
  */
 export function UserStatus({ user }) {
-  // Tu código aquí
+  if (!user) {
+    return <p> No hay usuario logueado</p>
+  }
+
+  if (user.banned) {
+    return <p style={{color: "red"}}> Usuario suspendido</p>
+  }
+
+  return (
+    <>
+      <p>Bienvenido {user.role === "admin" && <span style={{color: "blue"}}>(Administrador)</span>} {user.name} </p>
+      {!user.lastLogin ? "Primera vez aquí!" : `Ultimo acceso: ${user.lastLogin}`}
+    </>
+  )
 }
 
 // Prueba con:
