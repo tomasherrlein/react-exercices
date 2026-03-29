@@ -185,6 +185,57 @@ function crearItem(texto) {
 
 ---
 
+## Filtrar y ordenar sin estado extra
+
+Cuando filtras o ordenas una lista, el resultado es **estado derivado** — se calcula del estado existente:
+
+```jsx
+const [search, setSearch] = useState("");
+const [sortOrder, setSortOrder] = useState("asc"); // "asc" o "desc"
+
+// ✅ Calculado directo — NO uses useState para esto
+const filtered = contactos.filter(c =>
+  c.nombre.toLowerCase().includes(search.toLowerCase())
+);
+
+const sorted = [...filtered].sort((a, b) =>
+  sortOrder === "asc"
+    ? a.nombre.localeCompare(b.nombre)
+    : b.nombre.localeCompare(a.nombre)
+);
+```
+
+**Nota:** `[...filtered].sort()` crea una copia antes de ordenar. `.sort()` muta el array original, y en React no debes mutar estado.
+
+---
+
+## Edición in-place: patrón del borrador
+
+Cuando editas un item de la lista, necesitas un "borrador" temporal:
+
+```jsx
+const [editandoId, setEditandoId] = useState(null);   // ¿qué item se está editando?
+const [borrador, setBorrador] = useState({ titulo: "", contenido: "" }); // copia temporal
+
+function empezarEdicion(item) {
+  setEditandoId(item.id);
+  setBorrador({ titulo: item.titulo, contenido: item.contenido });
+}
+
+function guardar() {
+  setItems(prev => prev.map(i => i.id === editandoId ? { ...i, ...borrador } : i));
+  setEditandoId(null);
+}
+
+function cancelar() {
+  setEditandoId(null); // descarta el borrador, el item original no cambió
+}
+```
+
+¿Por qué no editar directamente el item en el array? Porque si el usuario cancela, no puedes "deshacer" los cambios. El borrador es la copia de seguridad.
+
+---
+
 ## Resumen
 
 | Pregunta | Respuesta |
@@ -194,3 +245,4 @@ function crearItem(texto) {
 | ¿Puedo usar el índice? | Solo si la lista es estática, no se reordena, y no tiene estado interno |
 | ¿Qué pasa sin key? | React muestra un warning y puede tener bugs con estado/checkboxes |
 | ¿Las keys deben ser globalmente únicas? | No — solo entre hermanos del mismo array |
+| ¿Filtrar/ordenar necesita useState? | No — son estado derivado, calcula directo |

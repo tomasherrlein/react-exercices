@@ -200,6 +200,59 @@ const pelicula = { titulo: "Inception", director: "Nolan", año: 2010 };
 
 ---
 
+## Composición — componentes dentro de componentes
+
+La composición es el patrón más poderoso de React. En vez de crear componentes gigantes, combinas componentes pequeños como piezas de LEGO.
+
+### Componentes contenedor (Layout)
+
+Puedes crear componentes que solo se encarguen de la estructura visual y acepten cualquier contenido via `children`:
+
+```jsx
+function Page({ children }) {
+  return <div style={{ maxWidth: 800, margin: "0 auto", padding: 20 }}>{children}</div>;
+}
+
+function Section({ title, children }) {
+  return (
+    <section>
+      <h2>{title}</h2>
+      {children}
+    </section>
+  );
+}
+
+// Uso — como piezas de LEGO encajadas
+<Page>
+  <Section title="Perfil">
+    <p>Contenido del perfil</p>
+  </Section>
+  <Section title="Configuración">
+    <p>Opciones aquí</p>
+  </Section>
+</Page>
+```
+
+### Variantes con props
+
+Un solo componente puede tener diferentes apariencias según una prop:
+
+```jsx
+function Card({ variant = "default", children }) {
+  const estilos = {
+    default:  { border: "1px solid #e0e0e0" },
+    outlined: { border: "2px dashed #999" },
+    elevated: { boxShadow: "0 2px 8px rgba(0,0,0,0.15)" },
+  };
+
+  return <div style={estilos[variant]}>{children}</div>;
+}
+
+<Card variant="elevated">Contenido destacado</Card>
+```
+
+---
+
 ## Resumen
 
 | Pregunta | Respuesta |
@@ -209,3 +262,4 @@ const pelicula = { titulo: "Inception", director: "Nolan", año: 2010 };
 | ¿Puedo modificar las props? | No — nunca. Crea variables nuevas si necesitas transformar |
 | ¿Cuándo crear un componente nuevo? | Cuando algo se repite, hace demasiado, o tiene lógica propia |
 | ¿Qué es children? | Todo lo que va entre las etiquetas de apertura y cierre del componente |
+| ¿Qué es composición? | Combinar componentes pequeños para construir UIs complejas |

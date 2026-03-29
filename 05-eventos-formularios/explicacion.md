@@ -189,6 +189,51 @@ const [tocados, setTocados] = useState({ email: false, password: false });
 
 ---
 
+## Formulario multi-step (wizard)
+
+Un wizard divide un formulario largo en pasos. El truco: un solo estado para todos los datos + un estado `step` para saber qué paso mostrar.
+
+```jsx
+const [step, setStep] = useState(1);
+const [formData, setFormData] = useState({ nombre: "", email: "", plan: "free" });
+
+// Renderizado condicional por paso
+{step === 1 && <PasoDatos formData={formData} onChange={handleChange} />}
+{step === 2 && <PasoPreferencias formData={formData} onChange={handleChange} />}
+{step === 3 && <PasoConfirmacion formData={formData} />}
+
+// Navegación
+<button onClick={() => setStep(s => s - 1)}>Atrás</button>
+<button onClick={() => setStep(s => s + 1)} disabled={!puedeAvanzar}>Siguiente</button>
+```
+
+Los datos se conservan al navegar porque viven en un solo estado compartido.
+
+---
+
+## Formularios dinámicos: campos que se agregan/quitan
+
+Cuando el usuario puede agregar campos (ej: "agregar otra experiencia laboral"), el estado es un **array de objetos**:
+
+```jsx
+const [entradas, setEntradas] = useState([
+  { id: Date.now(), empresa: "", cargo: "" },
+]);
+
+// Agregar entrada
+setEntradas(prev => [...prev, { id: Date.now(), empresa: "", cargo: "" }]);
+
+// Actualizar un campo de una entrada específica
+function actualizar(id, campo, valor) {
+  setEntradas(prev => prev.map(e => e.id === id ? { ...e, [campo]: valor } : e));
+}
+
+// Quitar entrada
+setEntradas(prev => prev.filter(e => e.id !== id));
+```
+
+---
+
 ## Resumen
 
 | Pregunta | Respuesta |
@@ -199,3 +244,5 @@ const [tocados, setTocados] = useState({ email: false, password: false });
 | ¿Y el checkbox? | Usa `checked` en vez de `value` |
 | ¿Cómo evitar la recarga al submit? | `e.preventDefault()` en el handler del form |
 | ¿Cómo validar? | Calcula la validación como estado derivado (sin useState extra) |
+| ¿Formulario multi-step? | Un estado compartido + `step` para controlar qué paso mostrar |
+| ¿Campos dinámicos? | Array de objetos en estado — agregar, quitar, actualizar por ID |

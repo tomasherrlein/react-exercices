@@ -98,40 +98,58 @@ Semana 10-13 →  Performance, patrones avanzados, testing, React Query
 ```
 ejercicios-react/
 ├── 01-jsx/
-│   ├── ejercicio.jsx    → Corrige errores de JSX
-│   └── ejercicio-2.jsx  → JSX con expresiones condicionales
+│   ├── explicacion.md   → Diferencias JSX/HTML, expresiones, condicionales
+│   └── ejercicio.jsx    → 5 ejercicios: errores, expresiones, estilos, .map(), Fragments
 ├── 02-componentes-props/
-│   └── ejercicio.jsx    → Descomponer un componente monolítico
+│   ├── explicacion.md   → Componentes, props, children, spread, composición
+│   └── ejercicio.jsx    → 5 ejercicios: descomponer, Avatar, Card, spread, layout
 ├── 03-usestate/
-│   └── ejercicio.jsx    → Contador, toggle, estado con objetos
+│   ├── explicacion.md   → Estado, immutabilidad, updater, objetos, arrays
+│   └── ejercicio.jsx    → 6 ejercicios: contador, toggle, objeto, carrito, tabs, bugs
 ├── 04-listas-keys/
-│   └── ejercicio.jsx    → Bug de keys + Todo list completa
+│   ├── explicacion.md   → Keys, bug del índice, filtrar/ordenar, edición in-place
+│   └── ejercicio.jsx    → 4 ejercicios: bug keys, TodoList, filtros+sort, edición
 └── 05-eventos-formularios/
-    └── ejercicio.jsx    → Formulario controlado + validación
+    ├── explicacion.md   → Controlados, handler universal, validación, wizard, dinámicos
+    └── ejercicio.jsx    → 4 ejercicios: registro, login+validación, wizard, dinámico
 ```
 
 ## Orden recomendado
 
-Haz los ejercicios en orden. Cada uno construye sobre el anterior.
+Lee la **explicacion.md** de cada tema ANTES de intentar los ejercicios.
 
 | Ejercicio | Concepto clave | Dificultad |
 |-----------|---------------|------------|
-| 01-jsx    | Diferencias JSX vs HTML | ★☆☆ |
-| 01-jsx (2)| Expresiones y renderizado condicional | ★★☆ |
-| 02-componentes-props | Descomposición y reutilización | ★★☆ |
-| 03-usestate (A) | Estado básico y límites | ★☆☆ |
-| 03-usestate (B) | Toggle booleano | ★☆☆ |
-| 03-usestate (C) | Estado con objetos — trampa del spread | ★★☆ |
-| 04-listas-keys (A) | Bug de índice como key | ★★☆ |
-| 04-listas-keys (B) | Todo list completa | ★★★ |
-| 05-formularios (A) | Formulario controlado con múltiples tipos | ★★☆ |
-| 05-formularios (B) | Validación en tiempo real | ★★★ |
+| 01-jsx (A) | Corregir 6 errores JSX vs HTML | ★☆☆ |
+| 01-jsx (B) | Expresiones, ternarios, && | ★☆☆ |
+| 01-jsx (C) | Estilos dinámicos con objetos | ★★☆ |
+| 01-jsx (D) | .map() para renderizar listas | ★★☆ |
+| 01-jsx (E) | Fragments + condicionales complejos | ★★★ |
+| 02-props (A) | Descomponer componente monolítico | ★☆☆ |
+| 02-props (B) | Props por defecto + condicional | ★☆☆ |
+| 02-props (C) | children: componente contenedor | ★★☆ |
+| 02-props (D) | Spread operator con props | ★★☆ |
+| 02-props (E) | Composición: Page + Section + InfoRow | ★★★ |
+| 03-state (A) | Contador con límites y colores | ★☆☆ |
+| 03-state (B) | Toggle visibilidad | ★☆☆ |
+| 03-state (C) | Estado con objetos (spread) | ★★☆ |
+| 03-state (D) | Carrito de compras (arrays) | ★★☆ |
+| 03-state (E) | Tabs con contador de visitas | ★★★ |
+| 03-state (F) | Encontrar 4 bugs de estado | ★★★ |
+| 04-listas (A) | Bug del índice como key | ★☆☆ |
+| 04-listas (B) | Todo list completa | ★★☆ |
+| 04-listas (C) | Lista filtrable + sortable | ★★★ |
+| 04-listas (D) | Edición in-place con borrador | ★★★ |
+| 05-forms (A) | Formulario controlado universal | ★★☆ |
+| 05-forms (B) | Login con validación visual | ★★☆ |
+| 05-forms (C) | Formulario wizard multi-step | ★★★ |
+| 05-forms (D) | Formulario dinámico (agregar/quitar) | ★★★ |
 
 ## Cómo practicar
 
-1. Lee el enunciado del ejercicio
-2. Intenta resolverlo sin mirar la solución
-3. Si te bloqueas más de 15 minutos, mira solo la pista
+1. Lee la **explicacion.md** del tema
+2. Intenta resolver el ejercicio sin mirar la solución
+3. Si te bloqueas más de 15 minutos, relee la explicación buscando la pista
 4. Compara tu solución con la propuesta — pueden ser distintas y ambas válidas
 
 ## Para ejecutar los ejercicios
