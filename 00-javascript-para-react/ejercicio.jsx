@@ -17,12 +17,12 @@
  *   const colores = ["rojo", "verde", "azul", "amarillo"];
  */
 
-// export default function Ejercicio0A() {
-//   const persona = { nombre: "Ana", edad: 28, ciudad: "Buenos Aires", activo: true };
-//   const colores = ["rojo", "verde", "azul", "amarillo"];
-//
-//   // Tu código aquí
-// }
+function Ejercicio0A() {
+  const persona = { nombre: "Ana", edad: 28, ciudad: "Buenos Aires", activo: true };
+  const colores = ["rojo", "verde", "azul", "amarillo"];
+
+  // Tu código aquí
+}
 
 /**
  * ============================================
@@ -45,13 +45,13 @@
  *   const numeros = [1, 2, 3, 4, 5];
  */
 
-// export default function Ejercicio0B() {
-//   const frutas = ["manzana", "banana", "naranja"];
-//   const config = { theme: "light", language: "es", fontSize: 16 };
-//   const numeros = [1, 2, 3, 4, 5];
-//
-//   // Tu código aquí
-// }
+function Ejercicio0B() {
+  const frutas = ["manzana", "banana", "naranja"];
+  const config = { theme: "light", language: "es", fontSize: 16 };
+  const numeros = [1, 2, 3, 4, 5];
+
+  // Tu código aquí
+}
 
 /**
  * ============================================
@@ -78,17 +78,17 @@
  *   ];
  */
 
-// export default function Ejercicio0C() {
-//   const productos = [
-//     { id: 1, nombre: "Remera", precio: 350 },
-//     { id: 2, nombre: "Zapatillas", precio: 1200 },
-//     { id: 3, nombre: "Pantalón", precio: 800 },
-//     { id: 4, nombre: "Gorra", precio: 250 },
-//     { id: 5, nombre: "Campera", precio: 1500 },
-//   ];
-//
-//   // Tu código aquí
-// }
+function Ejercicio0C() {
+  const productos = [
+    { id: 1, nombre: "Remera", precio: 350 },
+    { id: 2, nombre: "Zapatillas", precio: 1200 },
+    { id: 3, nombre: "Pantalón", precio: 800 },
+    { id: 4, nombre: "Gorra", precio: 250 },
+    { id: 5, nombre: "Campera", precio: 1500 },
+  ];
+
+  // Tu código aquí
+}
 
 /**
  * ============================================
@@ -118,18 +118,18 @@
  *   ];
  */
 
-// export default function Ejercicio0D() {
-//   const usuarios = [
-//     { id: 1, nombre: "Ana", admin: true, activo: true, email: "ana@mail.com",
-//       direccion: { ciudad: "Buenos Aires" }, posts: 5 },
-//     { id: 2, nombre: "Luis", admin: false, activo: false, email: null,
-//       direccion: null, posts: 0 },
-//     { id: 3, nombre: "María", admin: false, activo: true,
-//       direccion: { ciudad: "Córdoba" }, posts: 12 },
-//   ];
-//
-//   // Tu código aquí
-// }
+function Ejercicio0D() {
+  const usuarios = [
+    { id: 1, nombre: "Ana", admin: true, activo: true, email: "ana@mail.com",
+      direccion: { ciudad: "Buenos Aires" }, posts: 5 },
+    { id: 2, nombre: "Luis", admin: false, activo: false, email: null,
+      direccion: null, posts: 0 },
+    { id: 3, nombre: "María", admin: false, activo: true,
+      direccion: { ciudad: "Córdoba" }, posts: 12 },
+  ];
+
+  // Tu código aquí
+}
 
 /**
  * ============================================
@@ -161,21 +161,21 @@
  *    console.log por ahora — lo vamos a hacer bien con useState en el tema 03).
  */
 
-// export async function fetchUser(id) {
-//   // Tu código aquí
-// }
+async function fetchUser(id) {
+  // Tu código aquí
+}
 
-// export async function fetchUserAndPosts(id) {
-//   // Tu código aquí
-// }
+async function fetchUserAndPosts(id) {
+  // Tu código aquí
+}
 
-// export async function fetchFirstThreeUsers() {
-//   // Tu código aquí
-// }
+async function fetchFirstThreeUsers() {
+  // Tu código aquí
+}
 
-// export default function Ejercicio0E() {
-//   // Tu código aquí
-// }
+function Ejercicio0E() {
+  // Tu código aquí
+}
 
 /**
  * ============================================
@@ -214,21 +214,21 @@
  *    Dejá un comentario explicando POR QUÉ no se actualiza.
  */
 
-// export function crearContador(inicial) {
-//   // Tu código aquí
-// }
+function crearContador(inicial) {
+  // Tu código aquí
+}
 
-// export function crearSaludo(idioma) {
-//   // Tu código aquí
-// }
+function crearSaludo(idioma) {
+  // Tu código aquí
+}
 
-// export function crearLimitador(fn, limite) {
-//   // Tu código aquí
-// }
+function crearLimitador(fn, limite) {
+  // Tu código aquí
+}
 
-// export default function Ejercicio0F() {
-//   // Tu código aquí
-// }
+function Ejercicio0F() {
+  // Tu código aquí
+}
 
 /**
  * ============================================
