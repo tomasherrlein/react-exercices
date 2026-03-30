@@ -8,6 +8,18 @@ React tiene una trampa común: la gente aprende la API antes de entender el mode
 
 ---
 
+## Etapa 0 — JavaScript para React (1 semana)
+
+**Objetivo:** Tener sólidos los conceptos de JS que React usa constantemente.
+
+| # | Concepto | Descripción |
+|---|----------|-------------|
+| 0 | JavaScript para React | Destructuring, spread/rest, arrow functions, template literals, métodos de arrays, ternarios, optional chaining, import/export, async/await, inmutabilidad, closures |
+
+**No es un curso completo de JS** — solo cubre lo que necesitás para que React no parezca magia.
+
+---
+
 ## Etapa 1 — Fundamentos (2-3 semanas)
 
 **Objetivo:** Entender qué es React y por qué existe.
@@ -76,6 +88,7 @@ React tiene una trampa común: la gente aprende la API antes de entender el mode
 ## Resumen de la ruta
 
 ```
+Semana 0     →  JavaScript para React (destructuring, spread, arrays, async, closures)
 Semana 1-3   →  JSX, componentes, props, useState, listas, eventos
 Semana 4-6   →  useEffect, custom hooks, useRef, Error Boundaries
 Semana 7-9   →  Lifting state, React Router, Context, useReducer, arquitectura
@@ -92,6 +105,30 @@ Semana 10-14 →  Performance, concurrency, patrones avanzados, testing, React Q
 - **Para patrones**: Patterns.dev sección React
 
 ---
+---
+
+# Ejercicios — Etapa 0: JavaScript para React
+
+## Estructura
+
+```
+ejercicios-react/
+└── 00-javascript-para-react/
+    ├── explicacion.md   → Destructuring, spread, arrays, ternarios, async, closures
+    └── ejercicio.jsx    → 6 ejercicios: destructuring, spread, arrays, ternarios, async, closures
+```
+
+## Orden recomendado
+
+| Ejercicio | Concepto clave | Dificultad |
+|-----------|---------------|------------|
+| 00-js (A) | Destructuring de objetos y arrays | ★☆☆ |
+| 00-js (B) | Spread, rest e inmutabilidad | ★☆☆ |
+| 00-js (C) | .map(), .filter(), .find(), .some(), .reduce() | ★★☆ |
+| 00-js (D) | Ternarios, &&, ??, optional chaining en JSX | ★★☆ |
+| 00-js (E) | async/await, fetch, Promise.all | ★★★ |
+| 00-js (F) | Closures y por qué importan para hooks | ★★★ |
+
 ---
 
 # Ejercicios — Etapa 1: Fundamentos
